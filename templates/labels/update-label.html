@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+   Update Label Status
+{% endblock title %}
+{% block userdata %}
+    {% for user in user_data %}
+        <img class="rounded-circle header-profile-user" src="{{ user.photo.url }}"
+             alt="Header Avatar">
+        <span class="d-none d-xl-inline-block ml-1">{{ user.full_name }}</span>
+    {% endfor %}
+{% endblock userdata %}
+{% block content %}
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-flex align-items-center justify-content-between">
+                            <h4 class="mb-0 font-size-18">Update Label Status</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Labels</a></li>
+                                    <li class="breadcrumb-item active">Update Label Status</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Update Label Status</h4>
+                                {% for message in messages %}
+                                    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+
+                                <form class="needs-validation" novalidate method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="barcode_number">Barcode</label>
+
+                                                <input type="text" class="form-control" name="barcode_number" id="barcode_number"
+                                                       placeholder="Barcode" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide barcode.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                           <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="weight">Weight</label>
+
+                                                <input type="text" class="form-control" name="weight" id="weight"
+                                                       placeholder="Weight" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide weight.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <button class="btn btn-primary" type="submit"><i class="fa fa-level-up-alt"></i> Update Label</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                    </div> <!-- end col -->
+
+                </div>
+
+        {% if label != "" %}
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-4">Scanned Label</h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-centered table-nowrap mb-0">
+                                            <thead class="thead-light">
+                                            <tr>
+                                                <th>Barcode</th>
+                                            <th>Merchant Name</th>
+                                            <th>Shipper</th>
+                                             <th>Status</th>
+                                            <th>Weight</th>
+{#                                            <th>Print</th>#}
+
+{#                                            <th>Link</th>#}
+{#                                            <th>Edit</th>#}
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td><i class="fa fa-barcode"></i>{{ label.barcode_number }}</td>
+                                                <td><i class="fa fa-user-circle"></i>{{ label.merchant_name }}</td>
+                                                <td><i class="fa fa-envelope"></i>{{ label.shipper }}</td>
+                                                <td><i class="fa fa-truck-moving"></i>{{ label.status }}</td>
+                                                <td><i class="fa fa-balance-scale"></i>{{ label.weight }}</td>
+{#                                                <td><a href="/crm/print/return/{{ data.id }}/label/"#}
+{##}
+{#                                                       class=" btn-success btn-sm btn-rounded waves-effect waves-light"#}
+{#                                                       style="color: white" target="_blank">#}
+{#                                                    <i class="fa fa-print"></i> </a></td>#}
+{#                                                <td><input type="text" class="border-white" value="/crm/print/return/{{ data.id }}/label/" id="label_link" onclick="copy_link()" contenteditable="false">#}
+{#                                                        <br><span class="text-muted font-size-10">#}
+{#                                                            click to copy#}
+{#                                                        </span>#}
+{##}
+{#                                                </td>#}
+
+{#                                                <td>#}
+{#                                                    <a href="/admin/Lollipop_CRM/returnlabel/{{ data.pk }}/change/"#}
+{#                                                       id="edit-order"#}
+{#                                                       class="btn btn-primary btn-sm btn-rounded waves-effect waves-light"#}
+{#                                                       style="color: white">#}
+{#                                                        <i class="fa fa-edit"></i> Edit#}
+{#                                                    </a>#}
+{#                                                </td>#}
+                                            </tr>
+
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end table-responsive -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end row -->
+            {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'libs/jquery/jquery.min.js' %}"></script>
+
+    <script src="{% static 'libs/parsleyjs/parsley.min.js' %}"></script>
+    <script src="{% static 'js/pages/form-validation.init.js' %}"></script>
+
+{#    <script>#}
+{#    $(window).ready(function(){#}
+{##}
+{#	//$("#bCode").scannerDetection();#}
+{##}
+{#	console.log('all is well');#}
+{##}
+{#	$(window).scannerDetection();#}
+{#	$(window).bind('scannerDetectionComplete',function(e,data){#}
+{#            console.log('complete '+data.string);#}
+{#            $("#barcode_number").val(data.string);#}
+{#        })#}
+{#        .bind('scannerDetectionError',function(e,data){#}
+{#            console.log('detection error '+data.string);#}
+{#        })#}
+{#        .bind('scannerDetectionReceive',function(e,data){#}
+{#            console.log('Recieve');#}
+{#            console.log(data.evt.which);#}
+{#        })#}
+{#    </script>#}
+
+{% endblock content %}

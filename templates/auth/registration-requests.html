@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Registration Requests
+{% endblock title %}
+
+{% block content %}
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-flex align-items-center justify-content-between">
+                            <h4 class="mb-0 font-size-18">Registration Requests</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Requests</a></li>
+                                    <li class="breadcrumb-item active">Registration</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    {% for request in requests %}
+                    <div class="col-xl-4 col-sm-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="media">
+
+
+                                            <div class="media-body overflow-hidden">
+                                                <span class="text-truncate font-size-15 font-weight-bold"><a href="#" class="text-dark">Full Name:</a></span>  {{ request.first_name }} {{ request.last_name }}<br><br>
+                                              <span class="text-truncate font-size-15 font-weight-bold"><a href="#" class="text-dark">Email Address:</a></span>  {{ request.email }} <br><br>
+                                                <span class="text-truncate font-size-15 font-weight-bold"><a href="#" class="text-dark">Request Time:</a></span>  {{ request.date_joined }}
+
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="px-4 py-3 border-top">
+                                        <ul class="list-inline mb-0 text-center">
+
+                                            <li class="list-inline-item mr-3">
+                                                <a href="/crm/requests/{{ request.email }}/approve" class="btn btn-primary btn-sm">Approve</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                    {% endfor %}
+    </div>
+            </div>
+        </div>
+    </div>
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'libs/jquery/jquery.min.js' %}"></script>
+
+    <script src="{% static 'libs/parsleyjs/parsley.min.js' %}"></script>
+    <script src="{% static 'js/pages/form-validation.init.js' %}"></script>
+
+    <script>
+
+    </script>
+
+{% endblock content %}

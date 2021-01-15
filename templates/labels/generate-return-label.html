@@ -1,0 +1,113 @@
+{% extends 'customer-base.html' %}
+{% load static %}
+{% block title %}
+    Generate Return Label | ERS
+{% endblock title %}
+{% block userdata %}
+    {% for user in user_data %}
+        <img class="rounded-circle header-profile-user" src="{{ user.photo.url }}"
+             alt="Header Avatar">
+        <span class="d-none d-xl-inline-block ml-1">{{ user.full_name }}</span>
+    {% endfor %}
+{% endblock userdata %}
+{% block content %}
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-flex align-items-center justify-content-between">
+                            <h4 class="mb-0 font-size-18">Generate Return Label</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Labels</a></li>
+                                    <li class="breadcrumb-item active">Generate Return Label</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Generate Return Label</h4>
+                                <p class="card-title-desc text-success" style="text-align: center;">
+                                    {% for message in messages %}
+                                        {{ message }}</p>
+                                    {% endfor %}
+                                <form class="needs-validation" novalidate method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="merchant_name">Merchant Name</label>
+                                                <input type="text" class="form-control" name="merchant_name"
+                                                       id="merchant_name" placeholder="Merchant Name" value="{{ customer_info.customer_name }}" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter merchant name.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Logo</label>
+
+                                                <img src="{{ customer_info.logo.url }}" width="100" height="100" id="logo">
+                                                <input type="text" value="{{ customer_info.logo }}" hidden name="logo">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Shipper</label>
+                                                <p class="text-muted mb-2">
+                                                </p>
+                                                <textarea id="textarea" class="form-control" name="shipper"
+                                                          maxlength="400" rows="3"
+                                                          placeholder="Enter Shipper Here" required>None</textarea>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Please provide shipper details.
+                                            </div>
+                                            <div class="valid-feedback">
+                                                Looks good!.
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <button class="btn btn-primary" type="submit">Generate Label</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                    </div> <!-- end col -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'libs/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'libs/parsleyjs/parsley.min.js' %}"></script>
+    <script src="{% static 'js/pages/form-validation.init.js' %}"></script>
+
+{% endblock content %}

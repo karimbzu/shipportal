@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Package Label
+{% endblock title %}
+{% block userdata %}
+    {% for user in user_data %}
+        <img class="rounded-circle header-profile-user" src="{{ user.photo.url }}"
+             alt="Header Avatar">
+        <span class="d-none d-xl-inline-block ml-1">{{ user.full_name }}</span>
+    {% endfor %}
+{% endblock userdata %}
+{% block content %}
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-flex align-items-center justify-content-between">
+                            <h4 class="mb-0 font-size-18">Package</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Label</a></li>
+                                    <li class="breadcrumb-item active">Detail</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="invoice-title">
+                                    {% for data in package_details %}
+                                        <h4 class="float-right font-size-16">Package
+                                            Number:{{ data.package_number }}</h4>
+                                        <div class="mb-4">
+                                            <img src="../../static/images/barcode_p.png" alt="barcode" height="20"/>
+                                        </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <address>
+                                                    <strong>Sender:</strong><br>
+                                                    {{ data.sender.sender_name }}<br>
+                                                    {{ data.sender.sender_phone_number }}<br>
+                                                    {{ data.sender.sender_email_address }}<br>
+                                                    {{ data.sender.sender_company }}<br>
+                                                    {{ data.sender.sender_address }}<br>
+                                                    {{ data.sender.sender_city }}<br>
+                                                    {{ data.sender.sender_zip }}<br>
+                                                </address>
+                                            </div>
+                                            <div class="col-sm-6 text-sm-right">
+                                                <address class="mt-2 mt-sm-0">
+                                                    <strong>Receiver:</strong><br>
+                                                    {{ data.receiver.customer_name }}<br>
+                                                    {{ data.receiver.phone_number }}<br>
+                                                    {{ data.receiver.email_address }}<br>
+                                                    {{ data.receiver.company }}<br>
+                                                    {{ data.receiver.address }}<br>
+                                                    {{ data.receiver.city }}<br>
+                                                    {{ data.receiver.customer_zip }}<br>
+                                                </address>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 mt-3">
+                                                <address>
+                                                    <strong>Billing:</strong><br>
+                                                    {{ data.package_billing }}
+                                                </address>
+                                            </div>
+                                            <div class="col-sm-6 mt-3 text-sm-right">
+                                                <address>
+                                                    <strong>Order Date:</strong><br>
+                                                    11-11-2020<br><br>
+                                                </address>
+                                            </div>
+                                        </div>
+
+                                        <div class="py-2 mt-3">
+                                            <h3 class="font-size-15 font-weight-bold">Order summary</h3>
+                                        </div>
+                                        <div class="table-responsive">
+                                        <table class="table table-nowrap">
+                                        <thead>
+                                        <tr>
+
+                                            <th>Package Number</th>
+                                            <th>Weight</th>
+                                            <th>Dimensions</th>
+                                            <th>Content</th>
+                                            <th>Value</th>
+                                            <th>Packaging</th>
+                                            <th>Billing</th>
+                                            <th>Ref</th>
+                                            <th>Note</th>
+                                            <th>Remarks</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr>
+                                            <td>{{ data.package_number }}</td>
+                                            <td>{{ data.package_weight }}</td>
+                                            <td>{{ data.package_length }}x{{ data.package_width }}x{{ data.package_height }}</td>
+                                            <td>{{ data.package_content }}</td>
+                                            <td>{{ data.package_value }}</td>
+                                            <td>{{ data.package_packaging }}</td>
+                                            <td>{{ data.package_billing }}</td>
+                                            <td>{{ data.package_ref }}</td>
+                                            <td>{{ data.package_note }}</td>
+                                            <td>{{ data.package_remarks }}</td>
+
+
+                                        </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                    </table>
+                                    </div>
+                                <div class="d-print-none">
+                                    <div class="float-right">
+                                        <a href="javascript:window.print()"
+                                           class="btn btn-success waves-effect waves-light mr-1"><i
+                                                class="fa fa-print"></i></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+            </div> <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+
+
+{#        <footer class="footer">#}
+{#            <div class="container-fluid">#}
+{#                <div class="row">#}
+{#                    <div class="col-sm-6">#}
+{#                        <script>document.write(new Date().getFullYear())</script>#}
+{#                        © Femina.#}
+{#                    </div>#}
+{#                    <div class="col-sm-6">#}
+{#                        <div class="text-sm-right d-none d-sm-block">#}
+{#                            Design & Develop by EXARTH#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </footer>#}
+    </div>
+    <!-- end main content-->
+
+
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'libs/parsleyjs/parsley.min.js' %}"></script>
+    <script src="{% static 'js/pages/form-validation.init.js' %}"></script>
+
+{% endblock content %}

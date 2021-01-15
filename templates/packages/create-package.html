@@ -1,0 +1,481 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Create Package
+{% endblock title %}
+{% block userdata %}
+    {% for user in user_data %}
+        <img class="rounded-circle header-profile-user" src="{{ user.photo.url }}"
+             alt="Header Avatar">
+        <span class="d-none d-xl-inline-block ml-1">{{ user.full_name }}</span>
+    {% endfor %}
+{% endblock userdata %}
+{% block content %}
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-flex align-items-center justify-content-between">
+                            <h4 class="mb-0 font-size-18">Create Package</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Package</a></li>
+                                    <li class="breadcrumb-item active">Create Package</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+                <form class="needs-validation" novalidate method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-xl-6">
+
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center font-weight-bolder">Sender</h4>
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="sender_name">Sender Name</label>
+                                                <input type="text" class="form-control" name="sender_name"
+                                                       id="sender_name" placeholder="Sender Name" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter sender name.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="sender_phone_number">Phone Number</label>
+                                                <input type="text" class="form-control" name="sender_phone_number"
+                                                       id="sender_phone_number" placeholder="Phone Number" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter sender phone number.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="sender_company">Sender Company</label>
+                                                <input type="text" class="form-control" name="sender_company"
+                                                       id="sender_company" placeholder="Company" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter sender company.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="sender_address">Sender Address</label>
+                                                <input type="text" class="form-control" name="sender_address"
+                                                       id="sender_address" placeholder="Address" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter address.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="sender_zip">Sender Zip</label>
+                                                <input type="text" class="form-control" name="sender_zip"
+                                                       id="sender_zip" placeholder="Sender Zip" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter customer name.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="sender_city">Sender City</label>
+                                                <input type="text" class="form-control" name="sender_city"
+                                                       id="sender_city" placeholder="Sender City" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter customer name.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-4">
+                                            <div class="form-group">
+                                                <label for="sender_email_address">Email Address</label>
+                                                <input type="text" class="form-control" name="sender_email_address"
+                                                       id="sender_email_address" placeholder="Email Address" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter email address.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center font-weight-bolder">Receiver</h4>
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="customer_name">Receiver Name</label>
+                                                <input type="text" class="form-control" name="customer_name"
+                                                       id="customer_name" placeholder="Customer Name" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter customer name.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="phone_number">Phone Number</label>
+                                                <input type="text" class="form-control" name="phone_number"
+                                                       id="customer_name" placeholder="Customer Name" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter customer name.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="company">Company</label>
+                                                <input type="text" class="form-control" name="company"
+                                                       id="company" placeholder="Company" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter company.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="address">Address</label>
+                                                <input type="text" class="form-control" name="address"
+                                                       id="address" placeholder="Address" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter address.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="customer_zip">Zip</label>
+                                                <input type="text" class="form-control" name="customer_zip"
+                                                       id="customer_zip" placeholder="Zip" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter zip.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group">
+                                                <label for="city">City</label>
+                                                <input type="text" class="form-control" name="city"
+                                                       id="city" placeholder="City" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter city.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-4">
+                                            <div class="form-group">
+                                                <label for="email_address">Email Address</label>
+                                                <input type="text" class="form-control" name="email_address"
+                                                       id="email_address" placeholder="Email Address" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter email address.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">Package Details</h4>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="package_number">Package Number</label>
+                                                <input type="text" class="form-control" name="package_number"
+                                                       id="package_number" placeholder="Package Number" required>
+                                                <div class="invalid-feedback">
+                                                    Please enter package number.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+                                                <label for="package_weight">Weight</label>
+                                                <select class="form-control" name="package_weight" id="package_weight"
+                                                        required>
+                                                    <option value="0-2 kg">0-2 kg</option>
+                                                    <option value="2-5 kg">2-5 kg</option>
+                                                    <option value="5-20 kg">5-20 kg</option>
+                                                    <option value="20-30 kg">20-30 kg</option>
+                                                    <option value="30-50 kg">30-50 kg</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please provide package weight.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="package_content">Package Content</label>
+                                                <input type="text" class="form-control" name="package_content"
+                                                       id="package_content"
+                                                       placeholder="Package Content" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide Package Content.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+                                                <label for="package_length">Length</label>
+                                                <input type="text" class="form-control" name="package_length"
+                                                       id="package_length" placeholder="Length" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid Package Length.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+                                                <label for="package_width">Width</label>
+                                                <input type="text" class="form-control" name="package_width"
+                                                       id="package_width"
+                                                       placeholder="Width" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide package width.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+                                                <label for="package_height">Height</label>
+                                                <input type="text" class="form-control" name="package_height"
+                                                       id="package_height"
+                                                       placeholder="Height" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide Package Height.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="package_value">Package Value</label>
+                                                <input type="text" class="form-control" name="package_value"
+                                                       id="package_value" placeholder="Package Value" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide Package Value.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+                                                <label for="package_packaging">Packaging</label>
+                                                <input type="text" class="form-control" name="package_packaging"
+                                                       id="package_packaging" placeholder="Packaging" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide Package Packaging.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="package_ref">Ref</label>
+                                                <input type="text" class="form-control" name="package_ref"
+                                                       id="package_ref" placeholder="Ref" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide Ref.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="package_note">Note</label>
+                                                <input type="text" class="form-control" name="package_note"
+                                                       id="package_note" placeholder="Note" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide Note.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="package_remarks">Remarks</label>
+                                                <input type="text" class="form-control" name="package_remarks"
+                                                       id="package_remarks" placeholder="Remarks" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide remarks.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="package_billing">Billing</label>
+                                                <input type="text" class="form-control" name="package_billing"
+                                                       id="package_billing" placeholder="Billing" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide billing.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <!-- end card -->
+                        </div> <!-- end col -->
+
+                    </div>
+                    <button class="btn btn-primary" type="submit">Create Package</button>
+
+
+                </form>
+
+            </div>
+            </form>
+        </div>
+    </div>
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'libs/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'libs/parsleyjs/parsley.min.js' %}"></script>
+    <script src="{% static 'js/pages/form-validation.init.js' %}"></script>
+
+{% endblock content %}

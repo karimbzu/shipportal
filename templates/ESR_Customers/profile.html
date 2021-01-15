@@ -1,0 +1,219 @@
+{% extends 'customer-base.html' %}
+{% load static %}
+{% block title %}
+    Edit Profile
+{% endblock title %}
+{% block userdata %}
+
+    <span class="d-none d-xl-inline-block ml-1">{{ request.user.username }}</span>
+
+{% endblock userdata %}
+
+{% block content %}
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-flex align-items-center justify-content-between">
+                            <h4 class="mb-0 font-size-18">Edit Profile</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Profile</a></li>
+                                    <li class="breadcrumb-item active">Edit Profile</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"></h4>
+                                {% for message in messages %}
+                                    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+
+                                <form class="needs-validation" novalidate method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="customer_name">Full Name</label>
+                                                <input type="text" class="form-control" name="customer_name"
+                                                       id="customer_name" placeholder="Full Name"
+                                                       value="{{ info.customer_name }}" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide full name.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="email_address">Email Address</label>
+                                                <input type="email" class="form-control disabled bg-soft-dark" name="email_address" style="cursor: not-allowed"
+                                                       id="email_address" placeholder="Email Address"
+                                                       value="{{ info.email_address }}" required disabled>
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid email address.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="phone_number">Phone Number</label>
+                                                <input type="text" class="form-control" name="phone_number"
+                                                       id="phone_number" pattern="\d*" minlength="11" maxlength="11"
+                                                       title="923001234567" placeholder="Phone Number"
+                                                       value="{{ info.phone_number }}" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide a valid phone number.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+
+                                                <label for="city">City</label>
+                                                <input type="text" class="form-control" id="city" name="city"
+                                                       placeholder="Enter City" value="{{ info.city }}" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide city.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!.
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-1">
+                                            <div class="form-group">
+
+                                                <label for="customer_zip">Zip</label>
+                                                <input type="text" class="form-control" id="customer_zip"
+                                                       name="customer_zip"
+                                                       placeholder="Enter Zip" value="{{ info.customer_zip }}" required>
+
+                                                <div class="invalid-feedback">
+                                                    Please provide zip.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!.
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="company">Company</label>
+                                                <input type="text" class="form-control disabled bg-soft-dark" style="cursor: not-allowed"
+                                                       id="company"
+                                                       name="company"
+
+                                                       placeholder="Enter Company" value="{{ info.company }}" required
+                                                       disabled>
+                                                <div class="invalid-feedback">
+                                                    Please provide a company name.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!.
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="logo">Logo</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" name="logo" id="logo"
+                                                           accept="image/*" value="{{ info.logo.url }}"
+                                                           required>
+                                                    <label class="custom-file-label" for="customFile">Choose Logo
+                                                    </label>
+                                                    <div class="invalid-feedback">
+                                                        Please provide a valid image.
+                                                    </div>
+                                                    <div class="valid-feedback">
+                                                        Looks good!.
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-1">
+
+                                            <img src="{{ info.logo.url }}" height="80" width="80">
+                                        </div>
+
+                                        <div class="col-md-9">
+                                            <div class="form-group">
+
+                                                <label for="address">Address</label>
+                                                <input type="text" class="form-control" id="address" name="address"
+                                                       placeholder="Enter Address" value="{{ info.address }}" required>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Please provide address.
+                                            </div>
+                                            <div class="valid-feedback">
+                                                Looks good!.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Update Profile</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                    </div> <!-- end col -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JAVASCRIPT -->
+    <script src="{% static 'libs/jquery/jquery.min.js' %}"></script>
+
+    <script src="{% static 'libs/parsleyjs/parsley.min.js' %}"></script>
+    <script src="{% static 'js/pages/form-validation.init.js' %}"></script>
+
+{% endblock content %}

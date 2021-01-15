@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Packages
+{% endblock title %}
+{% block userdata %}
+    {% for user in user_data %}
+     <img class="rounded-circle header-profile-user" src="{{ user.photo.url }}"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ml-1">{{ user.full_name }}</span>
+    {% endfor %}
+{% endblock userdata %}
+{% block content %}
+
+
+                <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title mb-4">Packages</h4>
+                                        <div class="table-responsive">
+                                            <table class="table table-centered table-nowrap mb-0">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                      <th>Package Number</th>
+                                                        <th>Weight</th>
+                                                        <th>Dimensions</th>
+                                                        <th>Content</th>
+                                                        <th>Value</th>
+                                                        <th>Packaging</th>
+                                                        <th>Ref</th>
+                                                        <th>Note</th>
+                                                        <th>Remarks</th>
+                                                        <th>Billing</th>
+                                                        <th>Label</th>
+                                                        <th>Action</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for data in all_packages%}
+                                                    <tr>
+                                                    <td>{{ data.package_number }}</td>
+                                                    <td>{{ data.package_weight }}</td>
+                                                    <td>{{ data.package_length }}x{{ data.package_width }}x{{ data.package_height }}</td>
+                                                    <td>{{ data.package_content }}</td>
+                                                    <td>{{ data.package_value }}</td>
+                                                    <td>{{ data.package_packaging }}</td>
+                                                    <td>{{ data.package_ref }}</td>
+                                                    <td>{{ data.package_note }}</td>
+                                                    <td>{{ data.package_remarks }}</td>
+                                                    <td>{{ data.package_billing }}</td>
+                                                   <td>
+                                                       <a href="/crm/package/label/{{ data.package_number }}/" target="_blank" class="btn btn-success btn-sm btn-rounded waves-effect waves-light"><i class="fa fa-print"></i> </a>
+                                                   </td>
+                                                   <td>
+                                                         <a href="/admin/Lollipop_CRM/package/{{ data.id }}/change/" target="_blank" id="edit-order" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light" style="color: white">
+                                                               <i class="fa fa-edit"></i> Edit
+                                                            </a>
+                                                    </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- end table-responsive -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- JAVASCRIPT -->
+            <script src="{% static 'libs/parsleyjs/parsley.min.js' %}"></script>
+        <script src="{% static 'js/pages/form-validation.init.js' %}"></script>
+
+{% endblock content %}
