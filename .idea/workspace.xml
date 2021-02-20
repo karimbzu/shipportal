@@ -3,25 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="64fc0f28-8f53-4c69-a5f5-76cd918b833b" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.ebextensions/django.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/return_labels/barcodes/2021000000249.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/return_labels/barcodes/2021000000256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/images/return_labels/barcodes/2021000000263.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/simple-returns.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollipop_CRM/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lollipop_CRM/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lollipop_CRM/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lollipop_CRM/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project_Lollipop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project_Lollipop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CRM/add-customers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/CRM/add-customers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CRM/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/CRM/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/customer-base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/customer-base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/labels/generate-return-label.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/labels/generate-return-label.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/labels/print-return-label.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/labels/print-return-label.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,8 +154,16 @@
       <workItem from="1611888177615" duration="596000" />
       <workItem from="1612555974724" duration="9054000" />
       <workItem from="1613072495035" duration="1150000" />
-      <workItem from="1613812179442" duration="632000" />
+      <workItem from="1613812179442" duration="896000" />
     </task>
+    <task id="LOCAL-00001" summary="AWS Deployment | Final testing">
+      <created>1613815277906</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1613815277906</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,12 +171,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="AWS Deployment | Final testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="AWS Deployment | Final testing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="516" y="235" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610909031610">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="516" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1610909031610" />
+    <state x="376" y="27" key="CommitChangelistDialog2" timestamp="1613815262842">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="376" y="27" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1613815262842" />
     <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1608736633113">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -206,6 +203,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605719496026" />
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2" timestamp="1613815314791">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="165" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1613815314791" />
     <state x="465" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1613812178647">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
