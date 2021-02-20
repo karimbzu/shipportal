@@ -32,19 +32,19 @@
                         <div class="navbar-brand-box">
                             <a href="/" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="../../static/images/logo.svg" alt="" height="22">
+                                    <img src="{% static 'images/simple-returns.png' %}" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="../../static/images/logo-dark.png" alt="" height="17">
+                                    <img src="{% static 'images/simple-returns.png' %}" alt="" height="17">
                                 </span>
                             </a>
 
                             <a href="" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="../../static/images/logo-light.svg" alt="" height="22">
+                                    <img src="{% static 'images/simple-returns.png' %}" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="../../static/images/logo-light.png" alt="" height="19">
+                                    <img src="{% static 'images/simple-returns.png' %}" alt="" height="60">
                                 </span>
                             </a>
                         </div>
@@ -244,16 +244,16 @@
                     </ul>
                 </li>
 
-                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bxs-package"></i>
-                        <span>Packages</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="/crm/create/package/">Create Package</a></li>
-                        <li><a href="/crm/view/packages/">View Package</a></li>
-                    </ul>
-                </li>
+{#                 <li>#}
+{#                    <a href="javascript: void(0);" class="has-arrow waves-effect">#}
+{#                        <i class="bx bxs-package"></i>#}
+{#                        <span>Packages</span>#}
+{#                    </a>#}
+{#                    <ul class="sub-menu" aria-expanded="false">#}
+{#                        <li><a href="/crm/create/package/">Create Package</a></li>#}
+{#                        <li><a href="/crm/view/packages/">View Package</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
 
                       <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -266,7 +266,6 @@
                         <li><a href="{% url 'View In Transit Labels' %}">In Transit Labels</a></li>
                     </ul>
                 </li>
-
 
 
                 <li class="menu-title">Account</li>

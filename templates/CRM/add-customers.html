@@ -53,11 +53,11 @@
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="customer_name">Customer Name</label>
+                                                <label for="customer_name">Contact Person</label>
                                                 <input type="text" class="form-control" name="customer_name"
                                                        id="customer_name" placeholder="Customer Name" required>
                                                 <div class="invalid-feedback">
-                                                    Please enter customer name.
+                                                    Please enter contact person.
                                                 </div>
                                                 <div class="valid-feedback">
                                                     Looks good!
@@ -96,11 +96,11 @@
 
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="company">Company</label>
+                                                <label for="company">Company Name</label>
                                                 <input type="text" class="form-control" name="company" id="company"
-                                                       placeholder="Company" required>
+                                                       placeholder="Company Name" required>
                                                 <div class="invalid-feedback">
-                                                    Please provide company.
+                                                    Please provide company name.
                                                 </div>
                                                 <div class="valid-feedback">
                                                     Looks good!
@@ -110,9 +110,9 @@
 
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="address">Address</label>
+                                                <label for="address">Street & House #</label>
                                                 <input type="text" class="form-control" name="address" id="address"
-                                                       placeholder="Address" required>
+                                                       placeholder="Street & House #" required>
                                                 <div class="invalid-feedback">
                                                     Please provide address.
                                                 </div>
@@ -145,6 +145,73 @@
                                                        id="customer_zip" placeholder="Zip code" required>
                                                 <div class="invalid-feedback">
                                                     Please provide zip code.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="invoice_email">Invoice Email</label>
+                                                <input type="text" class="form-control" name="invoice_email"
+                                                       id="invoice_email" placeholder="Invoice Email" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide invoice email.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="invoicing_schedule">Invoicing Schedule</label>
+                                                <select class="form-control" name="invoicing_schedule"
+                                                        id="invoicing_schedule">
+                                                    <option value="Weekly">Weekly</option>
+                                                    <option value="Monthly">Monthly</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please provide schedule.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="payment_method">Payment Method</label>
+                                                <select class="form-control" id="payment_method" name="payment_method">
+                                                    <option value="PayPal">PayPal</option>
+                                                    <option value="Stripe">Stripe</option>
+                                                    <option value="Debit">Debit</option>
+                                                    <option value="By Invoice">By Invoice</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please provide payment method.
+                                                </div>
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="rate_card">Rate Card</label>
+                                                <input type="text" class="form-control" name="rate_card"
+                                                       id="rate_card" placeholder="Rate Card" required>
+                                                <div class="invalid-feedback">
+                                                    Please provide rate card.
                                                 </div>
                                                 <div class="valid-feedback">
                                                     Looks good!

@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 
 import barcode
 from barcode import EAN13
@@ -23,19 +23,19 @@ from Lollipop_CRM.models import Customer, Sender, Package, Profile, UserPermissi
 
 
 def dashboard(request):
-    shipments = Package.objects.count()
-    labels = ReturnLabel.objects.count()
-    arrived = ReturnLabel.objects.filter(status="Arrived At Warehouse").count()
+    shipments = Package.objects.filter(package_date__month=datetime.now().month).count()
+    labels = ReturnLabel.objects.filter(label_date__month=datetime.now().month).count()
+    arrived = ReturnLabel.objects.filter(status="Arrived At Warehouse", label_date__month=datetime.now().month).count()
     transit = ReturnLabel.objects.filter(status="In Transit").count()
     customers = Customer.objects.count()
-    customer_with_zero_label = Customer.objects.filter(user__customer__returnlabel__isnull=True)
+    recent_labels = ReturnLabel.objects.all().order_by('-id')[:10]
     context = {
         'shipments': shipments,
         'labels': labels,
         'arrived': arrived,
         'transit': transit,
         'customers': customers,
-        'customer_with_zero_label': customer_with_zero_label
+        'recent_labels': recent_labels
     }
 
     return render(request, template_name="CRM/dashboard.html", context=context)
@@ -81,7 +81,7 @@ def auth_signup(request):
                                            is_active=False,
                                            is_staff=False,
                                            is_superuser=False,
-                                           date_joined=datetime.datetime.now()
+                                           date_joined=datetime.now()
                                            )
                 user.save()
                 customer = Customer.objects.create(
@@ -116,12 +116,31 @@ def auth_signup(request):
 def add_customer(request):
     if request.method == "POST":
         form = CustomerForm(data=request.POST, files=request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Customer added successfully")
-        else:
-            messages.error(request, "Oops! an error occurred")
-            print(form.errors)
+        user = User.objects.create(username=request.POST.get("email_address"),
+                                   first_name=request.POST.get("customer_name"),
+                                   email=request.POST.get("email_address"), password=make_password("1234"))
+        user.save()
+
+        customer = Customer.objects.create(
+            customer_name=request.POST.get("customer_name"),
+            phone_number=request.POST.get("phone_number"),
+            company=request.POST.get("company"),
+            address=request.POST.get("address"),
+            customer_zip=request.POST.get("customer_zip"),
+            city=request.POST.get("city"),
+            email_address=request.POST.get("email_address"),
+            invoicing_email=request.POST.get("invoice_email"),
+            invoicing_schedule=request.POST.get("invoicing_schedule"),
+            payment_method=request.POST.get("payment_method"),
+            rate_card=request.POST.get("rate_card"),
+            user=user
+
+        )
+        customer.save()
+        perms = UserPermission.objects.create(user=user, role="Customer")
+        perms.save()
+        messages.success(request, "Customer added successfully")
+
     return render(request, template_name='CRM/add-customers.html')
 
 
@@ -234,7 +253,7 @@ def generate_return_label(request):
 
         internal_number = total_label.id + 1
         print("label", internal_number)
-        now = datetime.datetime.now()
+        now = datetime.now()
         internal_number = str(internal_number)
 
         current_year = now.year

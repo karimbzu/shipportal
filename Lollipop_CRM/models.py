@@ -9,7 +9,13 @@ class Customer(models.Model):
     customer_zip = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     email_address = models.CharField(max_length=50)
-    logo = models.ImageField(upload_to="images/logo")
+
+    invoicing_email = models.CharField(max_length=100)
+    invoicing_schedule = models.CharField(max_length=50)
+    payment_method = models.CharField(max_length=50)
+    rate_card = models.CharField(max_length=50)
+
+    logo = models.ImageField(upload_to="images/logo", blank=True, null=True)
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 
     def __str__(self):
@@ -44,6 +50,7 @@ class Package(models.Model):
     package_billing = models.CharField(max_length=100)
     sender = models.ForeignKey(Sender, on_delete=models.CASCADE)
     receiver = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    package_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.package_number
@@ -81,3 +88,4 @@ class ReturnLabel(models.Model):
     status = models.CharField(max_length=100, null=True, blank=True)
     weight = models.CharField(max_length=100, null=True, blank=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    label_date = models.DateField(auto_now_add=True)

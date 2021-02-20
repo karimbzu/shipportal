@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'Project_Lollipop',
     'Lollipop_CRM',
     'Lollipop_Customers',
+
 ]
 
 MIDDLEWARE = [
